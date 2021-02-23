@@ -53,6 +53,57 @@ function start_spinner()
 }
 
 # -------------------------------------------------------------------------------- #
+# Draw Spinner Eval                                                                #
+# -------------------------------------------------------------------------------- #
+# Draw the actual spinner on the screen, after evaluating the command to use the   #
+# result as the message, function will sit in an infinite loop as the stop script  #
+# is used to terminate the function.                                               #
+#                                                                                  #
+# NOTE: Do not call this function directly!                                        #
+# -------------------------------------------------------------------------------- #
+
+function draw_spinner_eval()
+{
+    # shellcheck disable=SC1003
+    local -a marks=( '/' '-' '\' '|' )
+    local i=0
+
+    delay=${SPINNER_DELAY:-0.25}
+    message=${1:-}
+
+    while :; do
+        message=$(eval "$1")
+        printf '%s\r' "${marks[i++ % ${#marks[@]}]} $message"
+        sleep "${delay}"
+    done
+}
+
+# -------------------------------------------------------------------------------- #
+# Start Spinner Eval                                                               #
+# -------------------------------------------------------------------------------- #
+# A wrapper for starting the spiner, it will pass the command to be evaluated, and #
+# store the PID of the process for later termination.                              #
+# -------------------------------------------------------------------------------- #
+
+function start_spinner_eval()
+{
+    command=${1}                                  # Set the command
+
+    if [[ -z "${command}" ]]; then
+        echo "You MUST supply a command"
+        exit
+    fi
+
+    draw_spinner_eval "${command}" &              # Start the Spinner:
+
+    SPIN_PID=$!                                   # Make a note of its Process ID (PID):
+
+    declare -g SPIN_PID
+
+    trap stop_spinner $(seq 0 15)
+}
+
+# -------------------------------------------------------------------------------- #
 # Stop Spinner                                                                     #
 # -------------------------------------------------------------------------------- #
 # A wrapper for stopping the spinner, this simply kills off the process.           #

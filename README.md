@@ -40,13 +40,33 @@ Display a small progress spinner in bash while running your commands with option
 
 This can be used for anything that takes time.
 
-## Simple example
+## Simple (Static) Example
+
+This example passes a static string to start_spinner which remains in place until stop_spinner is called.
 
 ```shell
 source spinner.sh
 
 start_spinner "This is my cool spinner message"
 sleep 10
+
+stop_spinner
+```
+
+## Dynamic Example
+
+This example passes a command to start_spinner_eval which will be re-evaluated each time the spinner is drawn until stop_spinner is called.
+
+```shell
+source spinner.sh
+
+start_spinner_eval 'cat log | tail -1'
+
+for i in {1..10}; do
+    echo "Iteration number ${i}" >> log
+    sleep 1
+done
+
 stop_spinner
 ```
 
