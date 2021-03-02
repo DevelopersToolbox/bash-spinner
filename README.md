@@ -80,6 +80,9 @@ You can set an environment value called SPINNER_DELAY to change the default (0.2
 	<a href="https://github.com/TGWolf">
 		<img src="https://img.shields.io/badge/Wolf-black?style=for-the-badge" />
 	</a>
+	<a href="https://github.com/emilheunecke">
+		<img src="https://img.shields.io/badge/EmilHeunecke-black?style=for-the-badge" />
+	</a>
 </p>
 
 ## Show Support
