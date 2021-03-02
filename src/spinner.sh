@@ -75,6 +75,7 @@ function draw_spinner_eval()
         message=$(eval "$1")
         printf '%s\r' "${marks[i++ % ${#marks[@]}]} $message"
         sleep "${delay}"
+        printf '\033[2K'
     done
 }
 
@@ -115,6 +116,7 @@ function stop_spinner()
         kill -9 $SPIN_PID > /dev/null 2>&1;
     fi
     SPIN_PID=0
+    printf '\033[2K'
 }
 
 # -------------------------------------------------------------------------------- #
