@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/DevelopersToolbox/bash-spinner/compare/v0.1.2...HEAD)
 
-- Update travis slack integration due to new slack organisation [`[head]`](https://github.com/DevelopersToolbox/bash-spinner/commit/)
+- rebrand [`[head]`](https://github.com/DevelopersToolbox/bash-spinner/commit/)
+
+- Update travis slack integration due to new slack organisation [`[c46ad2e]`](https://github.com/DevelopersToolbox/bash-spinner/commit/c46ad2ebb25658020ca1b551bfc7ca5b3bfb1f25)
 
 - Fix travis rvm versions and slack integration [`[46fed83]`](https://github.com/DevelopersToolbox/bash-spinner/commit/46fed83d506b0836a16a27def3f28bd348d3d614)
 
