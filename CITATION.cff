@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: Bash Spinner
+abstract: Display a small progress spinner in bash while running your commands with optional message.
+type: software
+version: 0.1.0
+date-released: 2024-06-04
+repository-code: https://github.com/DevelopersToolbox/bash-spinner
+keywords:
+  - "Wolf Software"
+  - "Software"
+license: MIT
+authors:
+  - family-names: "Wolf"
+    orcid: "https://orcid.org/0009-0007-0983-2072"
